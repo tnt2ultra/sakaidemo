@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.sakaiproject.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SakaiI18nService" targetNamespace="http://webservices.sakaiproject.org/">
+  <wsdl:message name="getI18nProperties">
+    <wsdl:part name="locale" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="resourceclass" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="resourcebundle" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getI18nPropertiesResponse">
+    <wsdl:part name="return" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SakaiI18n">
+    <wsdl:operation name="getI18nProperties">
+      <wsdl:input message="tns:getI18nProperties" name="getI18nProperties">
+    </wsdl:input>
+      <wsdl:output message="tns:getI18nPropertiesResponse" name="getI18nPropertiesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SakaiI18nServiceSoapBinding" type="tns:SakaiI18n">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getI18nProperties">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="getI18nProperties">
+        <soap:body namespace="http://webservices.sakaiproject.org/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getI18nPropertiesResponse">
+        <soap:body namespace="http://webservices.sakaiproject.org/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SakaiI18nService">
+    <wsdl:port binding="tns:SakaiI18nServiceSoapBinding" name="SakaiI18nPort">
+      <soap:address location="https://vula.uct.ac.za/sakai-ws/soap/i18n"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
